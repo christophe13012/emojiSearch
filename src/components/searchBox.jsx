@@ -12,6 +12,9 @@ class SearchBox extends Component {
     const emojis = Object.keys(data).map(key => [key, data[key]]);
     let arrayPng = [];
     emojis.forEach(emoji => {
+      if (emoji[0] === this.state.searched) {
+        arrayPng.push(emoji[0]);
+      }
       emoji[1].forEach(el => {
         if (el === this.state.searched) {
           if (arrayPng.indexOf(emoji[0]) === -1) arrayPng.push(emoji[0]);
