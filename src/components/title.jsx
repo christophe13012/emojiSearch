@@ -7,7 +7,6 @@ const Test = () => {
   const emojis = Object.keys(data).map(key => [key, data[key]]);
   const firstEmojiSrc = "emojis/" + emojis[firstEmoji][0] + ".png";
   const secondEmojiSrc = "emojis/" + emojis[secondEmoji][0] + ".png";
-
   return (
     <div style={{ marginTop: 20, paddingBottom: 30 }}>
       <img

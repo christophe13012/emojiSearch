@@ -12,16 +12,15 @@ class SearchBox extends Component {
     const emojis = Object.keys(data).map(key => [key, data[key]]);
     let arrayPng = [];
     emojis.forEach(emoji => {
-      if (emoji[0] === this.state.searched) {
+      if (emoji[0].indexOf(this.state.searched) === 0) {
         arrayPng.push(emoji[0]);
       }
       emoji[1].forEach(el => {
-        if (el === this.state.searched) {
+        if (el.indexOf(this.state.searched) === 0) {
           if (arrayPng.indexOf(emoji[0]) === -1) arrayPng.push(emoji[0]);
         }
       });
     });
-    console.log(arrayPng);
     return (
       <div style={{ marginTop: 30, paddingLeft: 25, paddingRight: 25 }}>
         <div className="input-group input-group-lg">
@@ -40,9 +39,8 @@ class SearchBox extends Component {
           />
         </div>
         <ul className="list-group mt-3">
-          {arrayPng.map((emoji, index) => (
-            <Emoji key={index} emoji={emoji} />
-          ))}
+          {this.state.searched !== "" &&
+            arrayPng.map((emoji, index) => <Emoji key={index} emoji={emoji} />)}
         </ul>
       </div>
     );
