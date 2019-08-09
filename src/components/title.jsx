@@ -2,9 +2,9 @@ import React from "react";
 import data from "../emojis.json";
 
 const Test = () => {
-  const firstEmoji = Math.floor(Math.random() * 800);
-  const secondEmoji = Math.floor(Math.random() * 800);
   const emojis = Object.keys(data).map(key => [key, data[key]]);
+  const firstEmoji = Math.floor(Math.random() * emojis.length - 1);
+  const secondEmoji = Math.floor(Math.random() * emojis.length - 1);
   const firstEmojiSrc = "emojis/" + emojis[firstEmoji][0] + ".png";
   const secondEmojiSrc = "emojis/" + emojis[secondEmoji][0] + ".png";
   return (
